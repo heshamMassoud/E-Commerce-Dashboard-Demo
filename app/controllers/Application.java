@@ -3,7 +3,7 @@ package controllers;
 import io.sphere.client.shop.SphereClient;
 import io.sphere.client.shop.model.Customer;
 import io.sphere.client.shop.model.CustomerName;
-
+import views.html.*;
 import java.io.IOException;
 import java.util.List;
 
@@ -19,8 +19,8 @@ public class Application extends Controller {
 				.getResults();
 		sphere.shutdown();
 		Customer customer = allCustomers.get(0);
-		CustomerName customerName = customer.getName();
-		return ok(views.html.index.render("Welcome, " + customerName));
+		String customerName = customer.getName().toString();
+		return ok(index.render("Customers",customerName));
 	}
 
 }
