@@ -9,9 +9,9 @@ List[io.sphere.client.shop.model.Customer]) @body() = {
 			</tr>
 		</thead>
 		<tbody>
-			@for(c <- customers) {
+			@for(i <- 0 until customers.size()){
 			<tr>
-				<td>@c.getName()</td>
+				<td>@customers.get(i).getName()</td>
 				<td>Number of Orders</td>
 			</tr>
 			}
