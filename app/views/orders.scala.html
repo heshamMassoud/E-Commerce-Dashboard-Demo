@@ -1,0 +1,31 @@
+@(title: String, subtitle: String, ordersCustomers: List[io.sphere.client.shop.model.Customer], orders:
+List[io.sphere.client.shop.model.Order]) @body() = {
+<div class="table-responsive">
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>Order Number</th>
+				<th>Customer</th>
+				<th>Order State</th>
+				<th>Payment State</th>
+				<th>Total Quantity</th>
+				<th>Total Price</th>
+			</tr>
+		</thead>
+		<tbody>
+		
+			@for(i <- 0 until orders.size()){
+			<tr>
+				<td>@orders.get(i).getOrderNumber()</td>
+				<td>@ordersCustomers.get(i).getName()</td>
+				<td>@orders.get(i).getOrderState()</td>
+				<td>@orders.get(i).getPaymentState()</td>
+				<td>@orders.get(i).getTotalQuantity()</td>
+				<td>@orders.get(i).getTotalPrice()</td>
+			</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+} @main(title, subtitle)(body())

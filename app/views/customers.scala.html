@@ -1,0 +1,22 @@
+@(title: String, subtitle: String, customers:
+List[io.sphere.client.shop.model.Customer], customerOrders: java.util.ArrayList[Integer]) @body() = {
+<div class="table-responsive">
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Number of Orders</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for(i <- 0 until customers.size()){
+			<tr>
+				<td>@customers.get(i).getName()</td>
+				<td>@customerOrders.get(i)</td>
+			</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+} @main(title, subtitle)(body())
