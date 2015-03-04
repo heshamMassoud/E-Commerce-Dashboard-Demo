@@ -1,0 +1,27 @@
+@(title: String, subtitle: String, products:
+List[io.sphere.client.shop.model.Product]) @body() = {
+<div class="table-responsive">
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Rating</th>
+				<th>Price</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for(p <- products) {
+			<tr>
+				<td>@p.getName()</td>
+				<td>@p.getRating().getScore() (@p.getRating().getCount()
+					Reviews)</td>
+				<td>@p.getPrice().getValue()</td>
+				<td>@p.getDescription()</td>
+			</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+} @main(title, subtitle)(body())
